@@ -1,0 +1,34 @@
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+{% block content%}
+
+<div class="container">
+<div class="jumbotron ">
+<h1>{{title}}</h1>
+<form action="" method="POST">
+{% csrf_token %}
+{{form|crispy}}
+	<!--<ul class="nav navbar-nav navbar-right">
+	{% if request.user.is_authenticated %}
+	<li><a href="{% url 'logout' %}">Logout</a></li>
+	{% else %}
+	<li><a href="{% url 'login' %}">Login</a></li>
+	{% endif %}
+	</ul>
+	{% if not request.user.is_authenticated and not 'human/login' in request.get_full_path %}
+	<form action="{% url 'login' %}" method="POST">{% csrf_token %}
+		<div class="form-group">
+		{{form|crispy}}
+			<input type="text" class="form-control"  name="username" placeholder="Username">
+			<input type="text" class="form-control"  name="password" placeholder="Password">
+		</div>
+	</form>
+	{% endif %}-->
+	<input type="submit" class="btn btn-default" Value="{{title}}" >
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

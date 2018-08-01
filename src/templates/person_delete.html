@@ -1,0 +1,13 @@
+{% load staticfiles %}
+{% block content %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<h1><p class="text text-danger">Delete</p> <strong >{{obj.first_name}}</strong></h1>
+<form action="" method="POST">{% csrf_token %}
+<p>Are You Sure Want To Delete ??</p>
+	{{form.as_table}}
+<input class="btn btn-success" type="submit" value="YES">
+
+<a href="/human/{{obj.id}}" class="btn btn-danger">Cancle</a>
+
+</form>
+{% endblock %}

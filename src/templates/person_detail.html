@@ -1,0 +1,29 @@
+{% load staticfiles %}
+ <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+{% if messages %}
+<ul class="messages">
+<div class="alert alert-success">
+	{% for message in messages %}
+	<li  {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+	{% endfor %}
+</div>
+</ul>
+{% endif %}
+<div class="container">
+<div class="jumbotron">
+<h1 style="font-size: 34px;">Thank You For Registration</h1>
+
+First Name:<h1>{{ obj.first_name }}</h1>
+<p>
+	Middle Name: {{obj.middle_name}}</br>
+	Last Name: {{obj.last_name}}</br>
+	Date Of Birth: {{obj.birth_date}}</br>
+	Enrollment No: {{obj.enrollment_no}}</br>
+</p>
+<nav class="my-2 my-md-0 mr-md-3">
+<a class="btn btn-outline-danger" href="http://127.0.0.1:8000/human/{{obj.id}}/delete/">Delete Your Form?</a>
+<a class="btn btn-outline-info" href="http://127.0.0.1:8000/human/{{obj.id}}/edit/">Update Your Form?</a>
+<a class="btn btn-primary" href="http://127.0.0.1:8000/human/">Go To Home</a></br>
+</nav>
+</div>
+</div>

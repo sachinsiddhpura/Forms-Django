@@ -1,0 +1,10 @@
+{% extends 'persontype_detail.html' %}
+<h1>Update {{obj.first_name}}</h1>
+{% block content %}
+<form action="" method="POST">{% csrf_token %}
+<table>
+	{{ form.as_table }}
+</table>
+	<input type="submit" value="Submit" >
+</form>
+{% endblock %}

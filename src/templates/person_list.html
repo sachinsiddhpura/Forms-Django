@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if messages %}
+<ul class="messages">
+	{% for message in messages %}
+	<div class="alert alert-success">
+	<li {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</li>
+	</div>
+	{% endfor %}
+</ul>
+{% endif %}
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="container">
+			{% block jumbotron %}
+			<div class="jumbotron">
+
+			<h1>Hey This Is a Sachin </h1>
+				<!-- <a class="btn btn-success" href="http://127.0.0.1:8000/human/create/">CreatePost</a> -->
+				
+			<form action="/human/" method="GET">
+			<input type="text" name="q" placeholder="Search">
+				
+			</form>
+				{% for obj in obj_list %}
+				<ul class="list-group">
+			 	<li class="list-group-item">
+					<a class="btn btn-outline-secondary" href="/human/{{obj.id}}">{{obj.first_name}}</a></br>
+				</li>
+				</ul>
+				{% endfor %}
+			{% endblock %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

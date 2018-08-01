@@ -1,0 +1,18 @@
+{% extends "base_people.html" %}
+
+
+{% block title %}Person Type{% endblock %}
+
+
+{% block content_title %}
+  <h2>Person Types</h2>
+{% endblock %}
+
+{% block content %}
+  <ul class="link_list">
+    {% for person_type in form %}
+    <li><a href="">{{ person_type.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
